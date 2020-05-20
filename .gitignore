@@ -1,0 +1,7 @@
+#Env related
+bin/
+include/
+__pycache__/
+lib/
+##model files
+#models/

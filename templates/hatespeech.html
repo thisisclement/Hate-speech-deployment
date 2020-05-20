@@ -1,0 +1,56 @@
+<html>
+
+<head>
+  <title>Predict the comment!</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <style>
+    h1   {color: black;
+          text-align: center;
+          }
+    /* #result {
+         color: white;
+      } */
+
+  </style>
+</head>
+
+<script type="text/javascript">
+  var ohide = document.querySelector(".hide");
+  function gen_result() {
+    // ohide.style.color = "#000000";
+    document.getElementById("result").style.color = "#000000";
+  }
+</script>
+
+<body>
+
+  <table>
+    <tr><h1>Let's Eradicate Hate Speech!</h1></tr>
+    <tr></tr>
+    <tr>
+      <td>
+        <form action="/" method="POST">
+          Insert comment:<br><br>
+          <textarea rows="15" cols="75" name="comment" required></textarea> <br><br>
+          <div style="text-align:center" id="btn-submit">
+            <button type="submit" onclick="gen_result()">Submit</button>
+          </div>
+        </form>
+        <br>
+        {% if output %}
+        <div style="font-size: 2.5rem" id="result" class="hide">
+          <b>Predicted Class:</b> {{ output[0] }}<br><br>
+          {% endif %}
+          {% if output %}
+          <b>Probabilities:</b> {{ output[1] }}
+          {% endif %}
+        </div>
+      </td>
+      <td> <img src="/static/hate_speech_prediction_cover_img.png" alt="Eradicate Hate Speech">
+      </td>
+    </tr>
+  </table>
+
+</body>
+
+</html>
